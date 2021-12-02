@@ -1,23 +1,14 @@
-input.onButtonPressed(Button.A, function () {
-	
-})
-input.onButtonPressed(Button.AB, function () {
-    if (true) {
-        strip = neopixel.create(DigitalPin.P13, 45, NeoPixelMode.RGB)
-        strip.showColor(neopixel.colors(NeoPixelColors.Yellow))
-        strip.setBrightness(100)
-        strip.show()
-    }
-})
 let ttt = 0
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P13, 45, NeoPixelMode.RGB)
+let strip = neopixel.create(DigitalPin.P13, 45, NeoPixelMode.RGB)
+strip.showColor(neopixel.colors(NeoPixelColors.Yellow))
+strip.setBrightness(255)
+strip.show()
 basic.forever(function () {
     serial.writeNumber(pins.analogReadPin(AnalogPin.P4))
     serial.writeLine("")
     if (pins.analogReadPin(AnalogPin.P3) > 1000) {
         strip.showColor(neopixel.colors(NeoPixelColors.Yellow))
-        strip.setBrightness(200)
+        strip.setBrightness(255)
         strip.show()
         basic.pause(100)
     } else {
